@@ -5,6 +5,8 @@ and it returns a short URL such as http://short.est/GeAi9K. Visiting a shortened
 redirect the user to the long URL. Using the example above, visiting http://short.est/GeAi9K
 should redirect the user to https://example.com .
 
+Here's a test link (https://zone-url-app.netlify.app/)
+
 ## Here's how to run the application on your PC
 
 In the project directory, you can run:
