@@ -105,6 +105,8 @@ function App() {
 
   const showSearchUrlList = searchInputValue && !!searchedUrls?.length;
 
+  const showSearchEmptyState = searchInputValue && !searchedUrls?.length;
+
   return (
     <div id="app">
       <UrlInput
@@ -153,6 +155,12 @@ function App() {
             />
           ))}
         </UrlList.List>
+      )}
+
+      {showSearchEmptyState && (
+        <div className="empty-search-state">
+          <p>No URL found</p>
+        </div>
       )}
     </div>
   );
