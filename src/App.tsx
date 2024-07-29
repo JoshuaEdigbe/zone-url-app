@@ -79,13 +79,17 @@ function App() {
   };
 
   const handleDeleteUrl = (urlData: UrlItem) => {
-    const existingURLs = getSavedUrlsFromLocalStorage();
+    const userConsent = window.confirm("Are you sure you want delete this");
 
-    const upatedURLs = existingURLs.filter(
-      (url: UrlItem) => !(url?.shortUrl === urlData?.shortUrl)
-    );
+    if (userConsent) {
+      const existingURLs = getSavedUrlsFromLocalStorage();
 
-    updateUrlsStorage(upatedURLs);
+      const upatedURLs = existingURLs.filter(
+        (url: UrlItem) => !(url?.shortUrl === urlData?.shortUrl)
+      );
+
+      updateUrlsStorage(upatedURLs);
+    }
   };
 
   const getSavedUrlsFromLocalStorage = () => {
@@ -99,7 +103,7 @@ function App() {
   const showMainUrlList =
     !searchInputValue && !searchedUrls?.length && !!savedUrls?.length;
 
-  const showSearchUrlList = searchInputValue && !!searchedUrls?.length; 
+  const showSearchUrlList = searchInputValue && !!searchedUrls?.length;
 
   return (
     <div id="app">
